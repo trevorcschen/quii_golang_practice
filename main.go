@@ -1,7 +1,11 @@
 package main
 
-func Add(x, y int) int {
-	return x + y
+func Repeat(character string, repeatCount int) string {
+	var repeated string
+	for i := 0; i < repeatCount; i++ {
+		repeated += character
+	}
+	return repeated
 }
 func main() {
 	//fmt.Println(Hello("world", "English"))
