@@ -1,40 +1,5 @@
 package main
 
-func Sum(numbers []int) int {
-	var total int = 0
-	//for i := 0; i < len(numbers); i++ {
-	//	total += numbers[i]
-	//}
-
-	for _, number := range numbers {
-		total += number
-	}
-	return total
-}
-
-func SumAll(numbersToSum ...[]int) []int {
-	//lengthOfNumbers := len(numbersToSum)
-	//sums := make([]int, lengthOfNumbers)
-	//
-	//for i, numbers := range numbersToSum {
-	//	sums[i] = Sum(numbers)
-	//}
-
-	var sums []int
-	for _, numbers := range numbersToSum {
-		sums = append(sums, Sum(numbers))
-	}
-	return sums
-}
-
-func SumAllTails(numbersToSum ...[]int) (sums []int) {
-	for _, numbers := range numbersToSum {
-		if len(numbers) == 0 {
-			sums = append(sums, 0)
-			continue
-		}
-		tail := numbers[1:]
-		sums = append(sums, Sum(tail))
-	}
-	return sums
+func Perimeter(width float64, height float64) float64 {
+	return 2 * (width + height)
 }
