@@ -1,12 +1,40 @@
 package main
 
-func Repeat(character string, repeatCount int) string {
-	var repeated string
-	for i := 0; i < repeatCount; i++ {
-		repeated += character
+func Sum(numbers []int) int {
+	var total int = 0
+	//for i := 0; i < len(numbers); i++ {
+	//	total += numbers[i]
+	//}
+
+	for _, number := range numbers {
+		total += number
 	}
-	return repeated
+	return total
 }
-func main() {
-	//fmt.Println(Hello("world", "English"))
+
+func SumAll(numbersToSum ...[]int) []int {
+	//lengthOfNumbers := len(numbersToSum)
+	//sums := make([]int, lengthOfNumbers)
+	//
+	//for i, numbers := range numbersToSum {
+	//	sums[i] = Sum(numbers)
+	//}
+
+	var sums []int
+	for _, numbers := range numbersToSum {
+		sums = append(sums, Sum(numbers))
+	}
+	return sums
+}
+
+func SumAllTails(numbersToSum ...[]int) (sums []int) {
+	for _, numbers := range numbersToSum {
+		if len(numbers) == 0 {
+			sums = append(sums, 0)
+			continue
+		}
+		tail := numbers[1:]
+		sums = append(sums, Sum(tail))
+	}
+	return sums
 }
